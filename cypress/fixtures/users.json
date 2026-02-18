@@ -1,0 +1,106 @@
+{
+  "usuarios": [
+    {
+      "descricao": "Cadastro válido",
+      "nome": "Carlos Felix",
+      "email": "carlos.felix@email.com",
+      "senha": "Senha@123"
+    },
+    {
+      "descricao": "Nome vazio",
+      "nome": "",
+      "email": "teste@email.com",
+      "senha": "Senha@123"
+    },
+    {
+      "descricao": "Nome sem sobrenome",
+      "nome": "Carlos",
+      "email": "teste@email.com",
+      "senha": "Senha@123"
+    },
+    {
+      "descricao": "Nome com números",
+      "nome": "Carlos 123",
+      "email": "teste@email.com",
+      "senha": "Senha@123"
+    },
+    {
+      "descricao": "Nome com caracteres especiais",
+      "nome": "Carlos @Felix",
+      "email": "teste@email.com",
+      "senha": "Senha@123"
+    },
+    {
+      "descricao": "Nome com dois espaços seguidos",
+      "nome": "Carlos  Felix",
+      "email": "teste@email.com",
+      "senha": "Senha@123"
+    },
+    {
+      "descricao": "Nome curto",
+      "nome": "Ca Fe",
+      "email": "teste@email.com",
+      "senha": "Senha@123"
+    },
+    {
+      "descricao": "Email vazio",
+      "nome": "Carlos Felix",
+      "email": "",
+      "senha": "Senha@123"
+    },
+    {
+      "descricao": "Email sem arroba",
+      "nome": "Carlos Felix",
+      "email": "carlos.email.com",
+      "senha": "Senha@123"
+    },
+    {
+      "descricao": "Email com espaço",
+      "nome": "Carlos Felix",
+      "email": "carlos felix@email.com",
+      "senha": "Senha@123"
+    },
+    {
+      "descricao": "Email muito longo",
+      "nome": "Carlos Felix",
+      "email": "emailmuitolongotestandolimiteeeeeeeeeeeeeeeeeeeee@email.com",
+      "senha": "Senha@123"
+    },
+    {
+      "descricao": "Senha vazia",
+      "nome": "Carlos Felix",
+      "email": "teste@email.com",
+      "senha": ""
+    },
+    {
+      "descricao": "Senha sem número",
+      "nome": "Carlos Felix",
+      "email": "teste@email.com",
+      "senha": "Senha@"
+    },
+    {
+      "descricao": "Senha sem letra maiúscula",
+      "nome": "Carlos Felix",
+      "email": "teste@email.com",
+      "senha": "senha@123"
+    },
+    {
+      "descricao": "Senha sem caractere especial",
+      "nome": "Carlos Felix",
+      "email": "teste@email.com",
+      "senha": "Senha123"
+    },
+    {
+      "descricao": "Senha curta",
+      "nome": "Carlos Felix",
+      "email": "teste@email.com",
+      "senha": "S@1a"
+    },
+    {
+      "descricao": "Senha longa demais",
+      "nome": "Carlos Felix",
+      "email": "teste@email.com",
+      "senha": "SenhaMuito@123"
+    }
+  ]
+}
