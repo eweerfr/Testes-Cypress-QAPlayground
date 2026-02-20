@@ -1,36 +1,55 @@
+import signup from '../support/helpers/signupPage'
+
 let users
+
+context('Should reach Signup page from index', () => {
+    describe('Index page navigation', () => {
+        it('Should access Signup page', () => {
+            cy.goToIndex()
+            cy.contains('button', 'Cadastro').click()
+            cy.get('.login-content').should('exist').contains('h1', 'Cadastro').should('be.visible')
+        })
+    })
+})
 
 context('Positive Scenario', () => {
 
     describe('Signup Page', () => {
 
-        before(() => {
-            cy.start()
-            cy.contains('button', 'Cadastro').click()
-            cy.get('.login-content').should('exist').and('be.visible')
-
-            cy.fixture('users').then((data) => {
-                users = data
-            })
+        beforeEach(() => {
+            cy.goToSignup()
+            cy.fixture('users').then((data) => { users = data })
         })
 
         it('Should signup - Valid User', () => {
             const user = users.usuarios[0]
 
-            cy.get('#nome').type(user.nome)
-            cy.get('#email').type(user.email)
-            cy.get('#senha').type(user.senha)
-            cy.get('#confirmarSenha').type(user.senha)
+            signup.typeName(user.nome)
+            signup.typeEmail(user.email)
+            signup.typePassword(user.senha)
+            signup.confirm()
 
-            cy.get('#btnCadastrar').click()
-
-            cy.get('#modalMensagem').should('be.visible')
-            cy.get('#modalTexto')
-                .should('be.visible').and('have.text', 'Cadastro realizado com sucesso!')
+            cy.evaluateModal('Cadastro realizado com sucesso!')
         })
 
-    })
+        it('Should save data to localStorage', () => {
+            cy.clearLocalStorage()
+            const user = users.usuarios[0]
 
+            signup.typeName(user.nome)
+            signup.typeEmail(user.email)
+            signup.typePassword(user.senha)
+            signup.confirm()
+
+            cy.evaluateModal('Cadastro realizado com sucesso!')
+
+            cy.window().its('localStorage.qaplayground_usuario').then(JSON.parse).should('deep.equal', user)
+        })
+
+        it('Accessibility options should be visible', () => {
+            cy.checkAccessibility()
+        })
+    })
 })
 
 
@@ -38,26 +57,42 @@ context('Negative Scenario', () => {
 
     describe('Signup Page', () => {
 
-        before(() => {
-            cy.start()
-            cy.contains('button', 'Cadastro').click()
-            cy.get('.login-content').should('exist').and('be.visible')
-
-            cy.fixture('users').then((data) => {
-                users = data
-            })
+        beforeEach(() => {
+            cy.goToSignup()
+            cy.fixture('users').then((data) => { users = data })
         })
 
-        it.only('Should not allow empty name', () => {
-            const user = users.usuarios[1]
-            cy.get('#email').type(user.email)
-            cy.get('#senha').type(user.senha)
-            cy.get('#confirmarSenha').type(user.senha)
+        it('Should not allow empty name', () => {
+            const user = users.usuarios[0]
 
-            cy.get('#btnCadastrar').click()
+            signup.typeEmail(user.email)
+            signup.typePassword(user.senha)
+            signup.confirm()
 
-            cy.get('#modalMensagemErro').should('be.visible').find('h2')
-                .should('be.visible').and('have.text', 'Erro no Cadastro')
+
+            cy.evaluateModal('Preencher corretamente o campo Nome,dúvida entrar em Requisitos!')
+        })
+
+        it('Should not allow empty email', () => {
+            const user = users.usuarios[0]
+
+            signup.typeName(user.nome)
+            signup.typePassword(user.senha)
+            signup.confirm()
+
+
+            cy.evaluateModal('Preencher corretamente o campo E-mail,dúvida entrar em Requisitos!')
+        })
+
+        it('Should not allow empty password', () => {
+            const user = users.usuarios[0]
+
+            signup.typeName(user.nome)
+            signup.typeEmail(user.email)
+            signup.confirm()
+
+
+            cy.evaluateModal('Preencher corretamente o campo Senha,dúvida entrar em Requisitos!')
         })
     })
 })
