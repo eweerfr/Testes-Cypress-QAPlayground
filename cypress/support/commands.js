@@ -25,19 +25,20 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 //NAVIGATION
-Cypress.Commands.add('goToIndex', () => {
-    // cy.viewport(1920, 1080)  //set viewport fullhd
-    cy.visit('https://carlosfelixpenha-create.github.io/QAPlayground/index.html')
-})
 Cypress.Commands.add('goToSignup', () => {
     // cy.viewport(1920, 1080)  //set viewport fullhd
-    cy.visit('https://carlosfelixpenha-create.github.io/QAPlayground/frontend/pages/cadastro.html')
+    cy.visit('/frontend/pages/cadastro.html')
     cy.get('.login-content').should('exist').contains('h1', 'Cadastro').should('be.visible')
 })
 Cypress.Commands.add('goToLogin', () => {
     // cy.viewport(1920, 1080)  //set viewport fullhd
-    cy.visit('https://carlosfelixpenha-create.github.io/QAPlayground/frontend/pages/login.html')
+    cy.visit('/frontend/pages/login.html')
     cy.get('.login-content').should('exist').contains('h1', 'Login').should('be.visible')
+})
+Cypress.Commands.add('goToForm1', () => {
+    // cy.viewport(1920, 1080)  //set viewport fullhd
+    cy.visit('frontend/pages/formulario-1.html')
+    cy.get('.login-content').should('exist').contains('h1', 'Cadastro de Endereço').should('be.visible')
 })
 
 

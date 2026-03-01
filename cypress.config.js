@@ -5,8 +5,8 @@ module.exports = defineConfig({
    video: true,
 
   e2e: {
+    baseUrl: 'https://carlosfelixpenha-create.github.io/QAPlayground/',
     setupNodeEvents(on, config) {
-      // listeners do Node (se precisar)
     },
   },
 });
