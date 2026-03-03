@@ -55,11 +55,11 @@ Cypress.Commands.add('checkAccessibility', () => {
 })
 
 //INJECTOR
-Cypress.Commands.add('setUserStorage', (index = 0) => {
+Cypress.Commands.add('setUserStorage', (index = 0, key) => {
     cy.fixture('users').its(`usuarios.${index}`).then((user) => {
         cy.window().then((win) => {
             win.localStorage.setItem(
-                'qaplayground_usuario',
+                key,
                 JSON.stringify(user)
             )
         })

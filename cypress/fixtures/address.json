@@ -1,0 +1,24 @@
+{
+  "validAddress": {
+    "logradouro": "Rua das várzeas",
+    "numero": "1234",
+    "complemento": "Casa",
+    "bairro": "Central",
+    "cidade": "Xique xique",
+    "estado": "BA",
+    "cep": "12345-678"
+  },
+  "scenarios": [
+    { "label": "invalid number", "data": { "logradouro": "#", "numero": "#", "bairro": "#", "cidade": "#", "estado": "#", "cep": "1" }, "field": "Número" },
+    { "label": "invalid neighborhood", "data": { "logradouro": "#", "numero": "1", "bairro": "#", "cidade": "#", "estado": "#", "cep": "1" }, "field": "Bairro" },
+    { "label": "invalid city", "data": { "logradouro": "#", "numero": "1", "bairro": "AAA", "cidade": "#", "estado": "#", "cep": "1" }, "field": "Cidade" },
+    { "label": "invalid state", "data": { "logradouro": "#", "numero": "1", "bairro": "AAA", "cidade": "AAA", "estado": "AA", "cep": "1" }, "field": "Estado", "customMsg": "UF inválida! Preencher corretamente o campo Estado, dúvida entrar em requisitos!" },
+    { "label": "invalid zipcode", "data": { "logradouro": "#", "numero": "1", "bairro": "AAA", "cidade": "AAA", "estado": "SP", "cep": "1" }, "field": "CEP" },
+    { "label": "empty street", "data": { "numero": "123" }, "field": "Logradouro" },
+    { "label": "empty number", "data": { "logradouro": "Rua A" }, "field": "Número" },
+    { "label": "empty neighborhood", "data": { "logradouro": "Rua A", "numero": "0" }, "field": "Bairro" },
+    { "label": "empty city", "data": { "logradouro": "Rua A", "numero": "0", "bairro": "Central" }, "field": "Cidade" },
+    { "label": "empty state", "data": { "logradouro": "Rua A", "numero": "0", "bairro": "Central", "cidade": "São Paulo" }, "field": "Estado" },
+    { "label": "empty zipcode", "data": { "logradouro": "Rua A", "numero": "0", "bairro": "Central", "cidade": "São Paulo", "estado": "SP" }, "field": "CEP" }
+  ]
+}

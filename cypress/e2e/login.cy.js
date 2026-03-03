@@ -26,7 +26,7 @@ context('Positive Scenario', () => {
 
     beforeEach(() => {
         cy.goToLogin()
-        cy.setUserStorage(0)
+        cy.setUserStorage(0, 'qaplayground_usuario')
     })
 
     describe('Login should complete successfully', () => {

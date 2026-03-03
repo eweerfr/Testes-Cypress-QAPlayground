@@ -7,12 +7,33 @@
     { "nome": "Carlos  Felix", "email": "teste@email.com", "senha": "Senha@123" },
     { "nome": "Ca Fe", "email": "teste@email.com", "senha": "Senha@123" },
     { "nome": "Carlos Felix", "email": "carlos.email.com", "senha": "Senha@123" },
-    { "nome": "Carlos Felix", "email": "carlos  felix@email.com", "senha": "Senha@123" },
+    { "nome": "Carlos felix", "email": "te  ste@email.com", "senha": "Senha@123" },
     { "nome": "Carlos Felix", "email": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@email.com", "senha": "Senha@123" },
     { "nome": "Carlos Felix", "email": "teste@email.com", "senha": "Senha@" },
     { "nome": "Carlos Felix", "email": "teste@email.com", "senha": "senha@123" },
     { "nome": "Carlos Felix", "email": "teste@email.com", "senha": "Senha123" },
     { "nome": "Carlos Felix", "email": "teste@email.com", "senha": "S@1a" },
-    { "nome": "Carlos Felix", "email": "teste@email.com", "senha": "SenhaMuito@123" }
+    { "nome": "Carlos Felix", "email": "teste@email.com", "senha": "SenhaMuito@123" },
+    { "nome": "", "email": "teste@email.com", "senha": "Senha@123" },
+    { "nome": "Carlos Felix", "email": "", "senha": "Senha@123" },
+    { "nome": "Carlos Felix", "email": "teste@email.com", "senha": "" }
+  ],
+  "validationScenarios": [
+    { "index": 1, "label": "incomplete name", "field": "Nome" },
+    { "index": 2, "label": "numbers in name", "field": "Nome" },
+    { "index": 3, "label": "symbols in name", "field": "Nome" },
+    { "index": 4, "label": "double spaces in name", "field": "Nome" },
+    { "index": 5, "label": "short name", "field": "Nome" },
+    { "index": 6, "label": "missing @ in email", "field": "E-mail" },
+    { "index": 7, "label": "spaces in email", "field": "E-mail" },
+    { "index": 8, "label": "overly long email", "field": "E-mail" },
+    { "index": 9, "label": "password without numbers", "field": "Senha" },
+    { "index": 10, "label": "password without capital letters", "field": "Senha" },
+    { "index": 11, "label": "password without symbols", "field": "Senha" },
+    { "index": 12, "label": "short password", "field": "Senha" },
+    { "index": 13, "label": "overly long password", "field": "Senha" },
+    { "index": 14, "label": "empty name", "field": "Nome" },
+    { "index": 15, "label": "empty email", "field": "E-mail" },
+    { "index": 16, "label": "empty password", "field": "Senha" }
   ]
 }

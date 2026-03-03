@@ -1,21 +1,31 @@
 class SignupPage {
+    //! Uso do (if) para permitir preencher com campos vazios usando a função fillForm
 
     typeName(name) {
-        cy.get('#nome').type(name)
+        if (name) cy.get('#nome').clear().type(name)
     }
 
     typeEmail(email) {
-        cy.get('#email').type(email)
+        if (email) { cy.get('#email').clear().invoke('val', email).trigger('input') }
     }
 
     typePassword(password) {
-        cy.get('#senha').type(password)
-        cy.get('#confirmarSenha').type(password)
+        if (password) {
+            cy.get('#senha').clear().type(password)
+            cy.get('#confirmarSenha').clear().type(password)
+        }
     }
 
-    confirm() {
+    submit() {
         cy.get('#btnCadastrar').click()
     }
+
+    fillForm(user) {
+        this.typeName(user.nome)
+        this.typeEmail(user.email)
+        this.typePassword(user.senha)
+    }
+
 }
 
 export default new SignupPage()
